@@ -41,7 +41,7 @@ const projects = [
         filters: ["css"],
         symbol: "⌘",
         accent: "#ff8fb5",
-        path: "./practical_4_TSD2/index.html"
+        path: "https://aerobook-tsd.onrender.com/"
     },
     {
         number: "05",
