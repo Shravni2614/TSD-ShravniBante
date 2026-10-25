@@ -63,7 +63,7 @@ const projects = [
         filters: ["react", "javascript"],
         symbol: "⚛",
         accent: "#76d9ff",
-        path: "./practical_6_TSD2/student-portal/"
+        path: "https://tsd-student-portal.vercel.app/"
     }
 ];
 
