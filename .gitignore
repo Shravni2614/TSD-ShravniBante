@@ -1,0 +1,46 @@
+# Python virtual environments
+.venv/
+venv/
+env/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+credentials.json
+**/credentials.json
+client_secret*.json
+
+# Node.js dependencies
+node_modules/
+
+# Build outputs
+dist/
+build/
+
+# Local database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Local application credentials and configuration
+**/.env
+**/.env.*
+**/credentials.json
+**/client_secret*.json
+
+# Python virtual environments and local settings
+**/.venv/
+**/venv/
+**/__pycache__/
+
+# Local databases and backups
+**/*.sql
+**/*.sql.gz
+**/*.dump
+**/*.sqlite
+**/*.sqlite3

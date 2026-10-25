@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+  <title>UrbanMart · Premium E-Commerce</title>
+  <!-- Font Awesome 6 (free) for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Google Fonts for better typography -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- External CSS file -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Top Navigation Bar -->
+<nav class="navbar">
+  <div class="nav-container">
+    <div class="nav-logo">
+      <i class="fas fa-store"></i>
+      <span>Urban<span style="color: #facc15;">Mart</span></span>
+    </div>
+    <div class="nav-links">
+      <a href="#" class="active">Home</a>
+      <a href="#">Shop</a>
+      <a href="#">Deals</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </div>
+    <div class="nav-icons">
+      <i class="fas fa-search"></i>
+      <i class="fas fa-heart"></i>
+      <i class="fas fa-shopping-cart"></i>
+      <span class="cart-badge">3</span>
+    </div>
+  </div>
+</nav>
+
+<div class="shop-container">
+
+  <!-- BANNER (enhanced with animation) -->
+  <header class="hero-banner">
+    <div class="banner-content">
+      <div class="banner-text">
+        <span class="banner-tag">🔥 Summer Collection 2026</span>
+        <h1>Elevate Your <br><span class="highlight">Style Game</span></h1>
+        <p>Discover premium products curated just for you. <br>Limited time offers on top brands.</p>
+        <div class="banner-cta-group">
+          <div class="banner-cta">
+            <i class="fas fa-bag-shopping"></i> Shop Now
+          </div>
+          <div class="banner-cta secondary">
+            <i class="fas fa-play-circle"></i> Watch Story
+          </div>
+        </div>
+        <div class="banner-stats">
+          <div class="stat-item">
+            <span class="stat-number">50K+</span>
+            <span class="stat-label">Happy Customers</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">4.9★</span>
+            <span class="stat-label">Average Rating</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">24/7</span>
+            <span class="stat-label">Support</span>
+          </div>
+        </div>
+      </div>
+      <div class="banner-image">
+        <div class="floating-card">
+          <i class="fas fa-tag"></i>
+          <span>Save up to 40%</span>
+        </div>
+        <div class="floating-card second">
+          <i class="fas fa-shipping-fast"></i>
+          <span>Free Delivery</span>
+        </div>
+      </div>
+    </div>
+    <!-- decorative positioned circles -->
+    <div class="circle-deco"></div>
+    <div class="circle-deco2"></div>
+    <div class="circle-deco3"></div>
+  </header>
+
+  <!-- Category Filters -->
+  <div class="category-filters">
+    <button class="filter-btn active">All Products</button>
+    <button class="filter-btn"><i class="fas fa-chair"></i> Furniture</button>
+    <button class="filter-btn"><i class="fas fa-headphones"></i> Audio</button>
+    <button class="filter-btn"><i class="fas fa-watch"></i> Wearables</button>
+    <button class="filter-btn"><i class="fas fa-shoe-prints"></i> Footwear</button>
+    <button class="filter-btn"><i class="fas fa-lamp"></i> Lighting</button>
+    <button class="filter-btn"><i class="fas fa-tv"></i> Electronics</button>
+    <button class="filter-btn"><i class="fas fa-leaf"></i> Lifestyle</button>
+  </div>
+
+  <!-- section header with flex -->
+  <div class="section-header">
+    <div>
+      <h2>Featured <span style="color: #2563eb;">Collection</span></h2>
+      <p class="section-subtitle">Handpicked items just for you</p>
+    </div>
+    <span class="view-all">View All <i class="fas fa-arrow-right"></i></span>
+  </div>
+
+  <!-- PRODUCT GRID (CSS GRID) - 10 Cards -->
+  <div class="product-grid">
+
+    <!-- card 1 - Haven Lounge Chair -->
+    <div class="product-card">
+      <span class="badge">⭐ best seller</span>
+      <div class="product-image">
+        <img src="https://www.furniselan.com/cdn/shop/files/the-haven-set-cotton-chair-with-ottoman-877066.jpg?v=1748142806" alt="Haven Lounge Chair">
+      </div>
+      <span class="product-category">furniture</span>
+      <h3 class="product-title">Haven Lounge Chair</h3>
+      <div class="product-price">$249 <small>$320</small></div>
+      <div class="product-rating">
+        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+        <span class="rating-count">(4.8)</span>
+      </div>
+      <div class="product-actions">
+        <button class="add-btn"><i class="fas fa-plus-circle"></i> Add to Cart</button>
+        <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+      </div>
+    </div>
+
+    <!-- card 2 - Aura Wireless Buds -->
+    <div class="product-card">
+      <span class="badge sale">🔥 sale</span>
+      <div class="product-image">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOws87iUPVUFWzn5vALRLwyp-u6W5NDL9IklRWJv1N8Q&s=10" alt="Aura Wireless Buds">
+      </div>
+      <span class="product-category">audio</span>
+      <h3 class="product-title">Aura Wireless Buds</h3>
+      <div class="product-price">$89 <small>$129</small></div>
+      <div class="product-rating">
+        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        <span class="rating-count">(5.0)</span>
+      </div>
+      <div class="product-actions">
+        <button class="add-btn"><i class="fas fa-plus-circle"></i> Add to Cart</button>
+        <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+      </div>
+    </div>
+
+    <!-- card 3 - Pulse Smartwatch Pro -->
+    <div class="product-card featured-card">
+      <span class="badge">👑 premium</span>
+      <div class="product-image">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxuQJ-2Z7Bl4_FIIqkyb2xHdyt-g84LMpIcjFfDmQ3FA&s=10" alt="Pulse Smartwatch Pro">
+      </div>
+      <span class="product-category">wearables</span>
+      <h3 class="product-title">Pulse Smartwatch Pro</h3>
+      <div class="product-price">$159 <small>$199</small></div>
+      <div class="product-rating">
+        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+        <span class="rating-count">(4.6)</span>
+      </div>
+      <div class="product-actions">
+        <button class="add-btn"><i class="fas fa-plus-circle"></i> Add to Cart</button>
+        <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+      </div>
+    </div>
+
+    <!-- card 4 - Cozy Sectional Sofa -->
+    <div class="product-card">
+      <span class="badge out">sold out</span>
+      <div class="product-image">
+        <img src="https://images.stockcake.com/public/3/b/2/3b2b06be-bf62-4abb-aa26-fca6f77ee982_large/cozy-family-room-stockcake.jpg" alt="Cozy Sectional Sofa">
+      </div>
+      <span class="product-category">furniture</span>
+      <h3 class="product-title">Cozy Sectional Sofa</h3>
+      <div class="product-price">$799 <small>$920</small></div>
+      <div class="product-rating">
+        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+        <span class="rating-count">(4.2)</span>
+      </div>
+      <div class="product-actions">
+        <button class="add-btn" style="opacity:0.5; background:#64748b; cursor:not-allowed;"><i class="fas fa-minus-circle"></i> Out of Stock</button>
+        <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+      </div>
+    </div>
+
+    <!-- card 5 - Stride Runner Elite -->
+    <div class="product-card">
+      <div class="product-image">
+        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=400&fit=crop&crop=center" alt="Stride Runner Elite">
+      </div>
+      <span class="product-category">footwear</span>
+      <h3 class="product-title">Stride Runner Elite</h3>
+      <div class="product-price">$119 <small>$149</small></div>
+      <div class="product-rating">
+        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        <span class="rating-count">(5.0)</span>
+      </div>
+      <div class="product-actions">
+        <button class="add-btn"><i class="fas fa-plus-circle"></i> Add to Cart</button>
+        <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+      </div>
+    </div>
+
+    <!-- card 6 - Glow Desk Lamp -->
+    <div class="product-card">
+      <span class="badge sale">-30%</span>
+      <div class="product-image">
+        <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSZibcJyQxiQFqE9W6dcWwnMcSqo6Fy5n6J82mH6jYbrUZpjZh7qoyLOt34zyS2ztoRS5_-HuF-xwmEek4K4pQq8N1TSUt7w4Qv4gj5c40a" alt="Glow Desk Lamp">
+      </div>
+      <span class="product-category">lighting</span>
+      <h3 class="product-title">Glow Desk Lamp</h3>
+      <div class="product-price">$44 <small>$69</small></div>
+      <div class="product-rating">
+        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+        <span class="rating-count">(4.3)</span>
+      </div>
+      <div class="product-actions">
+        <button class="add-btn"><i class="fas fa-plus-circle"></i> Add to Cart</button>
+        <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+      </div>
+    </div>
+
+    <!-- card 7 - UltraView Monitor -->
+    <div class="product-card">
+      <div class="product-image">
+        <img src="https://www.digitaltrends.com/tachyon/2017/04/LG-Ultrafine-5K-monitor-mainfullmac.jpg?fit=1500%2C1000" alt="UltraView Monitor">
+      </div>
+      <span class="product-category">electronics</span>
+      <h3 class="product-title">UltraView Monitor</h3>
+      <div class="product-price">$349 <small>$420</small></div>
+      <div class="product-rating">
+        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+        <span class="rating-count">(4.7)</span>
+      </div>
+      <div class="product-actions">
+        <button class="add-btn"><i class="fas fa-plus-circle"></i> Add to Cart</button>
+        <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+      </div>
+    </div>
+
+    <!-- card 8 - Eco Water Bottle -->
+    <div class="product-card">
+      <span class="badge">🌿 eco</span>
+      <div class="product-image">
+        <img src="https://myborosil.com/cdn/shop/files/my-borosil-copper-water-bottles-1-l-copper-bottle-black-32363513938058.jpg" alt="Eco Water Bottle">
+      </div>
+      <span class="product-category">lifestyle</span>
+      <h3 class="product-title">Borosil Water Bottle</h3>
+      <div class="product-price">$29 <small>$45</small></div>
+      <div class="product-rating">
+        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        <span class="rating-count">(4.9)</span>
+      </div>
+      <div class="product-actions">
+        <button class="add-btn"><i class="fas fa-plus-circle"></i> Add to Cart</button>
+        <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+      </div>
+    </div>
+
+    <!-- card 9 - Nordic Bookshelf -->
+    <div class="product-card">
+      <span class="badge sale">🔥 new</span>
+      <div class="product-image">
+        <img src="https://assets.wfcdn.com/im/57856393/resize-h400-w400%5Ecompr-r85/3536/353615933/Nordic+style+bookcase.jpg" alt="Nordic Bookshelf">
+      </div>
+      <span class="product-category">furniture</span>
+      <h3 class="product-title">Nordic Bookshelf</h3>
+      <div class="product-price">$189 <small>$250</small></div>
+      <div class="product-rating">
+        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+        <span class="rating-count">(4.5)</span>
+      </div>
+      <div class="product-actions">
+        <button class="add-btn"><i class="fas fa-plus-circle"></i> Add to Cart</button>
+        <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+      </div>
+    </div>
+
+    <!-- card 10 - Wireless Keyboard -->
+    <div class="product-card">
+      <div class="product-image">
+        <img src="https://i.pinimg.com/736x/76/bf/96/76bf966bc255438165a8a3adb6bbffbe.jpg" alt="Wireless Keyboard">
+      </div>
+      <span class="product-category">electronics</span>
+      <h3 class="product-title">Wireless Keyboard</h3>
+      <div class="product-price">$79 <small>$110</small></div>
+      <div class="product-rating">
+        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        <span class="rating-count">(4.9)</span>
+      </div>
+      <div class="product-actions">
+        <button class="add-btn"><i class="fas fa-plus-circle"></i> Add to Cart</button>
+        <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+      </div>
+    </div>
+
+  </div> <!-- end grid -->
+
+  <!-- promo banner -->
+  <div class="promo-banner">
+    <div class="promo-content">
+      <div class="promo-icon"><i class="fas fa-gift"></i></div>
+      <div class="promo-text">
+        <h3>🎉 Special Offer: Free Shipping on Orders Over $100</h3>
+        <p>Use code: <strong>URBANFREE</strong> at checkout</p>
+      </div>
+      <button class="promo-btn">Shop Now <i class="fas fa-arrow-right"></i></button>
+    </div>
+  </div>
+
+  <!-- extra banner strip (flex) -->
+  <div class="promo-strip">
+    <span><i class="fas fa-truck-fast"></i> Free Shipping</span>
+    <span><i class="fas fa-rotate-left"></i> 30-Day Returns</span>
+    <span><i class="fas fa-lock"></i> Secure Checkout</span>
+    <span><i class="fas fa-headset"></i> 24/7 Support</span>
+    <span><i class="fas fa-award"></i> Quality Guaranteed</span>
+  </div>
+
+  <footer class="footer-note">
+    <div class="footer-content">
+      <div class="footer-logo">
+        <i class="fas fa-store"></i>
+        <span>Urban<span style="color: #facc15;">Mart</span></span>
+        <p style="font-size: 0.9rem; color: #94a3b8; margin-top: 0.5rem;">Premium products for modern living</p>
+      </div>
+      <div class="footer-social">
+        <i class="fab fa-facebook"></i>
+        <i class="fab fa-instagram"></i>
+        <i class="fab fa-twitter"></i>
+        <i class="fab fa-youtube"></i>
+      </div>
+    </div>
+    <div style="margin-top: 1rem;">
+      <i class="fas fa-store-alt" style="margin-right: 8px;"></i> 
+      responsive catalogue · grid + flex · positioned badges
+    </div>
+  </footer>
+
+</div> <!-- shop-container -->
+</body>
+</html>

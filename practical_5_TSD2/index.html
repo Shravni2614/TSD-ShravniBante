@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>THE NEWSROOM - News • Views • Perspectives</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,400;1,700&family=Noto+Serif+Devanagari:wght@500;700;900&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ================= TOP BAR ================= -->
+  <div class="top-bar">
+    <div class="container top-bar-inner">
+      <div class="top-bar-left">
+        <span class="time-display" id="live-time"><i class="far fa-clock"></i> Loading date...</span>
+        <span>|</span>
+        <div class="edition-selector">
+          <label for="edition" data-en="Edition:" data-hi="संस्करण:">Edition:</label>
+          <select id="edition">
+            <option value="india" data-en="India (English)" data-hi="भारत (हिन्दी)">India (English)</option>
+            <option value="global" data-en="Global (US)" data-hi="वैश्विक (अमेरिका)">Global (US)</option>
+          </select>
+        </div>
+      </div>
+      <div class="top-bar-right">
+        <button class="lang-toggle-btn" id="lang-toggle" aria-label="Toggle Language">
+          <i class="fas fa-language"></i>
+          <span class="btn-text-sm" id="lang-toggle-label">हिन्दी</span>
+        </button>
+
+        <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle Dark Mode">
+          <i class="fas fa-moon"></i>
+          <span class="btn-text-sm" id="theme-toggle-label" data-en="Dark Mode" data-hi="डार्क मोड">Dark Mode</span>
+        </button>
+        <button class="btn-text-sm btn-accent" onclick="openModal('subscribe-modal')"
+                data-en="Subscribe" data-hi="सदस्यता लें">Subscribe</button>
+        <button class="btn-text-sm" onclick="openModal('login-modal')"
+                data-en="Sign In" data-hi="साइन इन">Sign In</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= MASTHEAD ================= -->
+  <header class="container masthead">
+    <div class="masthead-inner">
+      <h1 class="masthead-title" id="masthead-title">The Newsroom</h1>
+      <p class="masthead-tagline" id="masthead-tagline">News • Views • Perspectives</p>
+    </div>
+    <div class="masthead-controls">
+      <button class="icon-btn" id="search-trigger-btn" aria-label="Search articles">
+        <i class="fas fa-search"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- ================= NAV ================= -->
+  <nav class="main-nav-wrapper">
+    <div class="container main-nav">
+      <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="nav-links" id="nav-links-list">
+        <li><a href="#" class="active" data-category="all" data-en="Home" data-hi="होम">Home</a></li>
+        <li><a href="#india" data-category="india" data-en="India" data-hi="भारत">India</a></li>
+        <li><a href="#world" data-category="world" data-en="World" data-hi="विश्व">World</a></li>
+        <li><a href="#politics" data-category="politics" data-en="Politics" data-hi="राजनीति">Politics</a></li>
+        <li><a href="#business" data-category="business" data-en="Business" data-hi="व्यापार">Business</a></li>
+        <li><a href="#technology" data-category="tech" data-en="Technology" data-hi="प्रौद्योगिकी">Technology</a></li>
+        <li><a href="#sports" data-category="sports" data-en="Sports" data-hi="खेल">Sports</a></li>
+        <li><a href="#entertainment" data-category="entertainment" data-en="Entertainment" data-hi="मनोरंजन">Entertainment</a></li>
+        <li><a href="#lifestyle" data-category="lifestyle" data-en="Lifestyle" data-hi="जीवनशैली">Lifestyle</a></li>
+        <li><a href="#opinion" data-category="opinion" data-en="Opinion" data-hi="विचार">Opinion</a></li>
+      </ul>
+    </div>
+  </nav>
+
+<!-- BREAKING NEWS -->
+<div class="ticker-container">
+
+    <div class="container">
+
+        <div class="ticker-badge">
+            <span class="live-dot"></span>
+            Breaking News
+        </div>
+
+        <div class="ticker-content">
+
+            <div class="ticker-items">
+
+                <span class="ticker-item">
+                    Major developments reported across India
+                </span>
+
+                <span class="ticker-item">
+                    Technology sector sees major growth
+                </span>
+
+                <span class="ticker-item">
+                    Global markets respond to latest developments
+                </span>
+
+                <span class="ticker-item">
+                    New policies announced by government
+                </span>
+
+            </div>
+
+        </div>
+
+        <div class="ticker-controls">
+            <button type="button" aria-label="Previous news">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+
+            <button type="button" aria-label="Next news">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+
+    </div>
+
+</div>
+
+  <!-- ================= MAIN ================= -->
+  <main class="container">
+
+    <!-- TOP STORIES -->
+    <section class="top-stories-section">
+      <div class="editorial-grid">
+
+        <!-- LEFT -->
+        <div class="grid-col grid-col-left">
+
+          <article class="article-card" onclick="openArticleById('art-101')">
+            <span class="category-tag" data-en="Economy" data-hi="अर्थव्यवस्था">Economy</span>
+            <h3 class="article-title title-md"
+                data-en="Reserve Bank Signals Steady Rates Amid Low Inflation"
+                data-hi="कम महँगाई के बीच रिज़र्व बैंक ने ब्याज दरें स्थिर रखने के संकेत दिए">Reserve Bank Signals Steady Rates Amid Low Inflation</h3>
+            <p class="article-excerpt"
+               data-en="Key policy benchmarks remain unchanged as industrial output shows robust second-quarter gains."
+               data-hi="औद्योगिक उत्पादन में दूसरी तिमाही में मज़बूत वृद्धि के चलते प्रमुख नीति दरें अपरिवर्तित रहीं।">Key policy benchmarks remain unchanged as industrial output shows robust second-quarter gains.</p>
+            <div class="article-meta">
+              <span data-en="5m ago" data-hi="5 मिनट पहले">5m ago</span> •
+              <span data-en="Economics Bureau" data-hi="आर्थिक ब्यूरो">Economics Bureau</span>
+            </div>
+          </article>
+
+          <div class="divider-line"></div>
+
+          <article class="article-card" onclick="openArticleById('art-102')">
+            <div class="article-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=500&auto=format&fit=crop" alt="Microchip circuit board">
+            </div>
+            <span class="category-tag" data-en="Technology" data-hi="प्रौद्योगिकी">Technology</span>
+            <h3 class="article-title title-sm"
+                data-en="Next-Gen Semiconductor Fabrication Hub Announced"
+                data-hi="अगली पीढ़ी का सेमीकंडक्टर निर्माण केंद्र घोषित">Next-Gen Semiconductor Fabrication Hub Announced</h3>
+            <div class="article-meta">
+              <span data-en="22m ago" data-hi="22 मिनट पहले">22m ago</span>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- CENTER -->
+        <div class="grid-col grid-col-center">
+          <article class="article-card lead-story" onclick="openArticleById('lead-1')">
+            <span class="category-tag"
+                  data-en="Diplomacy & Global Affairs"
+                  data-hi="कूटनीति एवं वैश्विक मामले">Diplomacy & Global Affairs</span>
+            <div class="article-img-wrapper">
+              <img src="https://china.usembassy-china.org.cn/wp-content/uploads/sites/23/2024/11/GctVDxeXIAEUN_E-1024x683.jpg" alt="International Conference Assembly">
+            </div>
+            <h2 class="article-title title-lg"
+                data-en="Global Leaders Finalize Historic Climate & Clean Energy Accord in Geneva"
+                data-hi="वैश्विक नेताओं ने जिनेवा में ऐतिहासिक जलवायु एवं स्वच्छ ऊर्जा समझौते को अंतिम रूप दिया">Global Leaders Finalize Historic Climate & Clean Energy Accord in Geneva</h2>
+            <p class="article-excerpt"
+               data-en="In a landmark decision following two weeks of intensive multilateral negotiations, delegates representing over 140 countries voted unanimously to commit $500 billion towards decarbonization and green infrastructure funding over the coming decade."
+               data-hi="दो सप्ताह की गहन बहुपक्षीय वार्ता के बाद, 140 से अधिक देशों के प्रतिनिधियों ने अगले दशक में डीकार्बोनाइज़ेशन और हरित अवसंरचना के लिए 500 अरब डॉलर के वित्तपोषण पर सर्वसम्मति से मतदान किया।">In a landmark decision following two weeks of intensive multilateral negotiations, delegates representing over 140 countries voted unanimously to commit $500 billion towards decarbonization and green infrastructure funding over the coming decade.</p>
+            <div class="article-meta">
+              <span><strong data-en="By Editorial Desk" data-hi="संपादकीय डेस्क द्वारा">By Editorial Desk</strong></span> •
+              <span data-en="Updated 12m ago" data-hi="12 मिनट पहले अपडेट">Updated 12m ago</span>
+            </div>
+          </article>
+        </div>
+
+        <!-- RIGHT: LATEST UPDATES -->
+        <div class="grid-col grid-col-right">
+          <div class="sidebar-header">
+            <span data-en="Latest Updates" data-hi="ताज़ा अपडेट">Latest Updates</span>
+            <span style="font-size: 0.75rem; color: var(--accent-red);">
+              <span class="live-dot"></span>
+              <span data-en="LIVE" data-hi="लाइव">LIVE</span>
+            </span>
+          </div>
+
+          <div class="sidebar-list">
+
+            <div class="sidebar-item article-card" onclick="openArticleById('art-201')">
+              <span class="category-tag" data-en="Infrastructure" data-hi="अवसंरचना">Infrastructure</span>
+              <h4 class="article-title title-sm"
+                  data-en="High-Speed Rail Corridor Passes Initial Safety Trials"
+                  data-hi="हाई-स्पीड रेल कॉरिडोर ने प्रारंभिक सुरक्षा परीक्षण पास किए">High-Speed Rail Corridor Passes Initial Safety Trials</h4>
+              <div class="article-meta"><span data-en="10m ago" data-hi="10 मिनट पहले">10m ago</span></div>
+            </div>
+
+            <div class="sidebar-item article-card" onclick="openArticleById('art-202')">
+              <span class="category-tag" data-en="Markets" data-hi="बाज़ार">Markets</span>
+              <h4 class="article-title title-sm"
+                  data-en="Asian Equities Rally on Strong Quarterly Export Figures"
+                  data-hi="मज़बूत त्रैमासिक निर्यात आँकड़ों से एशियाई शेयर बाज़ार में तेज़ी">Asian Equities Rally on Strong Quarterly Export Figures</h4>
+              <div class="article-meta"><span data-en="34m ago" data-hi="34 मिनट पहले">34m ago</span></div>
+            </div>
+
+            <div class="sidebar-item article-card" onclick="openArticleById('art-203')">
+              <span class="category-tag" data-en="Science" data-hi="विज्ञान">Science</span>
+              <h4 class="article-title title-sm"
+                  data-en="Deep-Space Observatory Detects Atmosphere on Exoplanet"
+                  data-hi="गहरे अंतरिक्ष वेधशाला ने बहिर्ग्रह पर वायुमंडल का पता लगाया">Deep-Space Observatory Detects Atmosphere on Exoplanet</h4>
+              <div class="article-meta"><span data-en="1h ago" data-hi="1 घंटा पहले">1h ago</span></div>
+            </div>
+
+            <div class="sidebar-item article-card" onclick="openArticleById('art-204')">
+              <span class="category-tag" data-en="Health" data-hi="स्वास्थ्य">Health</span>
+              <h4 class="article-title title-sm"
+                  data-en="Clinical Trial Shows Promise for Target Enzyme Therapy"
+                  data-hi="क्लिनिकल परीक्षण में लक्षित एंज़ाइम थेरेपी के सकारात्मक परिणाम">Clinical Trial Shows Promise for Target Enzyme Therapy</h4>
+              <div class="article-meta"><span data-en="2h ago" data-hi="2 घंटे पहले">2h ago</span></div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- INDIA -->
+    <section id="india">
+      <div class="section-title-wrap">
+        <h2 class="section-title" data-en="India Edition" data-hi="भारत संस्करण">India Edition</h2>
+        <a href="#" class="view-all-link" onclick="event.preventDefault();">
+          <span data-en="View All India News" data-hi="सभी भारत समाचार देखें">View All India News</span>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <div class="grid-4-col">
+        <article class="article-card" onclick="openArticleById('ind-1')">
+          <div class="article-img-wrapper">
+            <img src="https://educationpost.in/_next/image?url=https%3A%2F%2Fiirfranking2.s3.ap-south-1.amazonaws.com%2F1771846268046-download6.png&w=3840&q=75" alt="India Parliament">
+          </div>
+          <span class="category-tag" data-en="Governance" data-hi="शासन">Governance</span>
+          <h3 class="article-title title-sm"
+              data-en="Digital Public Infrastructure Initiative Expanded Nationwide"
+              data-hi="डिजिटल पब्लिक इन्फ्रास्ट्रक्चर पहल पूरे देश में विस्तारित">Digital Public Infrastructure Initiative Expanded Nationwide</h3>
+          <p class="article-excerpt"
+             data-en="New portal integrates municipal services across 200 cities."
+             data-hi="नया पोर्टल 200 शहरों में नगरपालिका सेवाओं को एकीकृत करता है।">New portal integrates municipal services across 200 cities.</p>
+        </article>
+
+        <article class="article-card" onclick="openArticleById('ind-2')">
+          <div class="article-img-wrapper">
+            <img src="https://imgproxy.divecdn.com/xghg-5BRf1XF8MG2rPjyo1eVHWUbK3Oq6wdu60sxlD8/g:ce/rs:fill:1200:675:1/Z3M6Ly9kaXZlc2l0ZS1zdG9yYWdlL2RpdmVpbWFnZS9HZXR0eUltYWdlcy02MTE4NjMxMThfMS5qcGc=.webp" alt="Indian Landmark">
+          </div>
+          <span class="category-tag" data-en="Education" data-hi="शिक्षा">Education</span>
+          <h3 class="article-title title-sm"
+              data-en="National Research Foundation Announces $2B Science Grants"
+              data-hi="राष्ट्रीय अनुसंधान फाउंडेशन ने 2 अरब डॉलर के विज्ञान अनुदान की घोषणा की">National Research Foundation Announces $2B Science Grants</h3>
+          <p class="article-excerpt"
+             data-en="Funding aimed at university labs and quantum computing R&D."
+             data-hi="यह वित्तपोषण विश्वविद्यालय प्रयोगशालाओं और क्वांटम कंप्यूटिंग अनुसंधान के लिए है।">Funding aimed at university labs and quantum computing R&D.</p>
+        </article>
+
+        <article class="article-card" onclick="openArticleById('ind-3')">
+          <div class="article-img-wrapper">
+            <img src="https://bluebirdsolar.com/cdn/shop/articles/Solar_Panel_Companies_in_Ladakh_6_ea559489-4bcf-4048-8df7-755b837c3a25.jpg?v=1765602437" alt="Solar farm">
+          </div>
+          <span class="category-tag" data-en="Energy" data-hi="ऊर्जा">Energy</span>
+          <h3 class="article-title title-sm"
+              data-en="Solar Rooftop Scheme Exceeds Installation Milestone"
+              data-hi="सोलर रूफटॉप योजना ने स्थापना का मील का पत्थर पार किया">Solar Rooftop Scheme Exceeds Installation Milestone</h3>
+          <p class="article-excerpt"
+             data-en="Over 1.5 million households connected to grid feed-in tariffs."
+             data-hi="15 लाख से अधिक घर ग्रिड फीड-इन टैरिफ से जुड़े।">Over 1.5 million households connected to grid feed-in tariffs.</p>
+        </article>
+
+        <article class="article-card" onclick="openArticleById('ind-4')">
+          <div class="article-img-wrapper">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDtzykImc3b75GW83Q_kYrFeKWs4zVD-LkNGdQ1yNrbzag8X-97ILnWbE&s=10" alt="Modern city skyline">
+          </div>
+          <span class="category-tag" data-en="Urban Development" data-hi="शहरी विकास">Urban Development</span>
+          <h3 class="article-title title-sm"
+              data-en="Smart Transit Corridors Operational in Major Metro Hubs"
+              data-hi="प्रमुख महानगरों में स्मार्ट ट्रांज़िट कॉरिडोर चालू">Smart Transit Corridors Operational in Major Metro Hubs</h3>
+          <p class="article-excerpt"
+             data-en="Electric bus fleets integrated with unified ticketing app."
+             data-hi="इलेक्ट्रिक बस बेड़े को एकीकृत टिकटिंग ऐप के साथ जोड़ा गया।">Electric bus fleets integrated with unified ticketing app.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- WORLD -->
+    <section id="world">
+      <div class="section-title-wrap">
+        <h2 class="section-title" data-en="World & International" data-hi="विश्व एवं अंतर्राष्ट्रीय">World & International</h2>
+        <a href="#" class="view-all-link" onclick="event.preventDefault();">
+          <span data-en="View World Desk" data-hi="विश्व डेस्क देखें">View World Desk</span>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <div class="grid-2-col-split">
+        <article class="article-card" onclick="openArticleById('wld-1')">
+          <div class="article-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&auto=format&fit=crop" alt="Global network">
+          </div>
+          <span class="category-tag" data-en="Global Trade" data-hi="वैश्विक व्यापार">Global Trade</span>
+          <h3 class="article-title title-md"
+              data-en="Trans-Atlantic Maritime Logistics Digitalized for Faster Supply Chains"
+              data-hi="तेज़ आपूर्ति शृंखलाओं के लिए ट्रांस-अटलांटिक समुद्री लॉजिस्टिक्स का डिजिटलीकरण">Trans-Atlantic Maritime Logistics Digitalized for Faster Supply Chains</h3>
+          <p class="article-excerpt"
+             data-en="Port authorities implement unified blockchain customs clearing, reducing container dwell times by up to 40 percent."
+             data-hi="बंदरगाह प्राधिकरण एकीकृत ब्लॉकचेन सीमा शुल्क निकासी लागू कर रहे हैं, जिससे कंटेनर ठहराव समय 40 प्रतिशत तक कम हुआ।">Port authorities implement unified blockchain customs clearing, reducing container dwell times by up to 40 percent.</p>
+        </article>
+
+        <div class="bullet-news-list">
+          <div class="bullet-news-item article-card" onclick="openArticleById('wld-2')">
+            <div>
+              <span class="category-tag" data-en="Europe" data-hi="यूरोप">Europe</span>
+              <h4 class="article-title title-sm"
+                  data-en="EU Approves Comprehensive Guidelines for Synthetic Bio-Fuels"
+                  data-hi="यूरोपीय संघ ने सिंथेटिक जैव-ईंधन के लिए व्यापक दिशानिर्देशों को मंज़ूरी दी">EU Approves Comprehensive Guidelines for Synthetic Bio-Fuels</h4>
+              <p class="article-excerpt"
+                 data-en="New standards pave way for commercial aviation adoption by 2028."
+                 data-hi="नए मानक 2028 तक वाणिज्यिक विमानन में अपनाने का मार्ग प्रशस्त करते हैं।">New standards pave way for commercial aviation adoption by 2028.</p>
+            </div>
+          </div>
+
+          <div class="bullet-news-item article-card" onclick="openArticleById('wld-3')">
+            <div>
+              <span class="category-tag" data-en="Americas" data-hi="अमेरिका">Americas</span>
+              <h4 class="article-title title-sm"
+                  data-en="Central Bank Consortium Tests Cross-Border CBDC Bridge"
+                  data-hi="केंद्रीय बैंक संघ ने सीमा-पार CBDC ब्रिज का परीक्षण किया">Central Bank Consortium Tests Cross-Border CBDC Bridge</h4>
+              <p class="article-excerpt"
+                 data-en="Pilot program demonstrates real-time settlement without intermediary banks."
+                 data-hi="पायलट कार्यक्रम ने बिचौलिया बैंकों के बिना रीयल-टाइम निपटान प्रदर्शित किया।">Pilot program demonstrates real-time settlement without intermediary banks.</p>
+            </div>
+          </div>
+
+          <div class="bullet-news-item article-card" onclick="openArticleById('wld-4')">
+            <div>
+              <span class="category-tag" data-en="Asia-Pacific" data-hi="एशिया-प्रशांत">Asia-Pacific</span>
+              <h4 class="article-title title-sm"
+                  data-en="Pacific Rim Summit Accord Focuses on Coral Reef Conservation"
+                  data-hi="पैसिफिक रिम शिखर सम्मेलन समझौता मूँगा भित्तियों के संरक्षण पर केंद्रित">Pacific Rim Summit Accord Focuses on Coral Reef Conservation</h4>
+              <p class="article-excerpt"
+                 data-en="Multinational taskforce assigned $1.2B budget for oceanic recovery."
+                 data-hi="बहुराष्ट्रीय कार्यबल को समुद्री सुधार के लिए 1.2 अरब डॉलर का बजट सौंपा गया।">Multinational taskforce assigned $1.2B budget for oceanic recovery.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AD -->
+    <div class="ad-banner-container">
+      <span class="ad-tag" data-en="Advertisement" data-hi="विज्ञापन">Advertisement</span>
+      <div class="ad-content">
+        <h4 data-en="Global Technology Conference" data-hi="वैश्विक प्रौद्योगिकी सम्मेलन">Global Technology Conference</h4>
+        <h2>TECH SUMMIT 2026</h2>
+        <p data-en="Shaping the Future of AI, Quantum Computing, and Autonomous Systems. November 12-14 | Convention Center & Online."
+           data-hi="एआई, क्वांटम कंप्यूटिंग और स्वायत्त प्रणालियों के भविष्य को आकार देना। 12-14 नवंबर | कन्वेंशन सेंटर एवं ऑनलाइन।">Shaping the Future of AI, Quantum Computing, and Autonomous Systems. November 12-14 | Convention Center & Online.</p>
+        <a href="#" class="ad-btn" onclick="event.preventDefault(); alert('Registering for Tech Summit 2026...');"
+           data-en="Register Now" data-hi="अभी पंजीकरण करें">Register Now</a>
+      </div>
+    </div>
+
+    <!-- TECHNOLOGY -->
+    <section id="technology">
+      <div class="section-title-wrap">
+        <h2 class="section-title" data-en="Technology & Science" data-hi="प्रौद्योगिकी एवं विज्ञान">Technology & Science</h2>
+        <a href="#" class="view-all-link" onclick="event.preventDefault();">
+          <span data-en="Explore Tech" data-hi="तकनीक देखें">Explore Tech</span>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <div class="grid-4-col">
+        <article class="article-card" onclick="openArticleById('tch-1')">
+          <span class="category-tag" data-en="Artificial Intelligence" data-hi="कृत्रिम बुद्धिमत्ता">Artificial Intelligence</span>
+          <h3 class="article-title title-sm"
+              data-en="Multimodal AI Agents Achieve New Benchmark in Code Refactoring"
+              data-hi="मल्टीमॉडल एआई एजेंट्स ने कोड रिफैक्टरिंग में नया बेंचमार्क हासिल किया">Multimodal AI Agents Achieve New Benchmark in Code Refactoring</h3>
+          <p class="article-excerpt"
+             data-en="Autonomous developer tools now handle complex multi-repository refactoring."
+             data-hi="स्वायत्त डेवलपर टूल्स अब जटिल मल्टी-रिपॉज़िटरी रिफैक्टरिंग संभालते हैं।">Autonomous developer tools now handle complex multi-repository refactoring.</p>
+        </article>
+
+        <article class="article-card" onclick="openArticleById('tch-2')">
+          <span class="category-tag" data-en="Hardware" data-hi="हार्डवेयर">Hardware</span>
+          <h3 class="article-title title-sm"
+              data-en="Photonic Chips Demonstrate 10x Energy Efficiency Gains"
+              data-hi="फोटोनिक चिप्स ने 10 गुना ऊर्जा दक्षता लाभ प्रदर्शित किया">Photonic Chips Demonstrate 10x Energy Efficiency Gains</h3>
+          <p class="article-excerpt"
+             data-en="Light-based computation replaces silicon transistors in data center testbed."
+             data-hi="डेटा सेंटर टेस्टबेड में प्रकाश-आधारित गणना ने सिलिकॉन ट्रांजिस्टर की जगह ली।">Light-based computation replaces silicon transistors in data center testbed.</p>
+        </article>
+
+        <article class="article-card" onclick="openArticleById('tch-3')">
+          <span class="category-tag" data-en="Cybersecurity" data-hi="साइबर सुरक्षा">Cybersecurity</span>
+          <h3 class="article-title title-sm"
+              data-en="Post-Quantum Cryptography Adopted by Global Banking Alliance"
+              data-hi="वैश्विक बैंकिंग गठबंधन ने पोस्ट-क्वांटम क्रिप्टोग्राफी अपनाई">Post-Quantum Cryptography Adopted by Global Banking Alliance</h3>
+          <p class="article-excerpt"
+             data-en="Lattice-based encryption deployed to secure customer transactions."
+             data-hi="ग्राहक लेनदेन सुरक्षित करने के लिए लैटिस-आधारित एन्क्रिप्शन तैनात।">Lattice-based encryption deployed to secure customer transactions.</p>
+        </article>
+
+        <article class="article-card" onclick="openArticleById('tch-4')">
+          <span class="category-tag" data-en="Space Exploration" data-hi="अंतरिक्ष अन्वेषण">Space Exploration</span>
+          <h3 class="article-title title-sm"
+              data-en="Commercial Lunar Lander Transmits High-Definition Lunar Mapping"
+              data-hi="वाणिज्यिक चंद्र लैंडर ने उच्च-रिज़ॉल्यूशन चंद्र मानचित्रण भेजा">Commercial Lunar Lander Transmits High-Definition Lunar Mapping</h3>
+          <p class="article-excerpt"
+             data-en="3D topographic maps reveal water-ice concentration in polar craters."
+             data-hi="3डी स्थलाकृतिक मानचित्रों ने ध्रुवीय क्रेटरों में जल-बर्फ की सांद्रता का खुलासा किया।">3D topographic maps reveal water-ice concentration in polar craters.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- VIDEOS (PLACEHOLDERS) -->
+    <section style="margin-top: 3rem;">
+      <div class="section-title-wrap">
+        <h2 class="section-title">
+          <i class="fas fa-play-circle" style="color:var(--accent-red);"></i>
+          <span data-en="Short Video Desk" data-hi="लघु वीडियो डेस्क">Short Video Desk</span>
+        </h2>
+        <span class="view-all-link" data-en="Watch & Listen" data-hi="देखें एवं सुनें">Watch & Listen</span>
+      </div>
+
+      <div class="video-grid">
+
+        <!--
+          ════════════════════════════════════════════════════════════
+          VIDEO PLACEHOLDER 1 — REPLACE 'YOUTUBE_ID_1'
+          ════════════════════════════════════════════════════════════
+          YouTube URL: https://www.youtube.com/watch?v=XXXXXXXXXXX
+          The ID is what comes after "v=" → XXXXXXXXXXX
+          ════════════════════════════════════════════════════════════
+        -->
+        <div class="video-card" onclick="playVideo('M5IxHbbjWk4', 'Inside Geneva Climate Accord: Key Takeaways')">
+          <div class="video-thumb-wrap">
+            <img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=600&auto=format&fit=crop" alt="Conference Video">
+            <div class="play-btn-overlay"><i class="fas fa-play"></i></div>
+            <span class="video-duration">03:45</span>
+          </div>
+          <h4 class="article-title title-sm" style="margin-top:0.5rem;"
+              data-en="Inside Geneva Climate Accord: Key Takeaways"
+              data-hi="जिनेवा जलवायु समझौते के अंदर: मुख्य बातें">Inside Geneva Climate Accord: Key Takeaways</h4>
+        </div>
+
+        <!-- VIDEO PLACEHOLDER 2 — REPLACE 'YOUTUBE_ID_2' -->
+        <div class="video-card" onclick="playVideo('90U_SmKyfGI', 'Quantum Supremacy in 2026: What it Means')">
+          <div class="video-thumb-wrap">
+            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&auto=format&fit=crop" alt="Quantum Computer Video">
+            <div class="play-btn-overlay"><i class="fas fa-play"></i></div>
+            <span class="video-duration">05:12</span>
+          </div>
+          <h4 class="article-title title-sm" style="margin-top:0.5rem;"
+              data-en="Quantum Supremacy in 2026: What it Means for Data"
+              data-hi="2026 में क्वांटम सर्वोच्चता: डेटा के लिए इसका क्या अर्थ है">Quantum Supremacy in 2026: What it Means for Data</h4>
+        </div>
+
+        <!-- VIDEO PLACEHOLDER 3 — REPLACE 'YOUTUBE_ID_3' -->
+        <div class="video-card" onclick="playVideo('pLaChEMnZFQ', 'Highlights: World Athletics Championship Final')">
+          <div class="video-thumb-wrap">
+            <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=600&auto=format&fit=crop" alt="Athletics Track Video">
+            <div class="play-btn-overlay"><i class="fas fa-play"></i></div>
+            <span class="video-duration">02:30</span>
+          </div>
+          <h4 class="article-title title-sm" style="margin-top:0.5rem;"
+              data-en="Highlights: World Athletics Championship Record Sprint"
+              data-hi="हाइलाइट्स: विश्व एथलेटिक्स चैंपियनशिप रिकॉर्ड स्प्रिंट">Highlights: World Athletics Championship Record Sprint</h4>
+        </div>
+
+      </div>
+    </section>
+
+<!-- OPINION & CARTOON -->
+<section id="opinion" style="margin-top: 3rem;">
+
+    <div class="section-title-wrap">
+        <h2
+            class="section-title"
+            data-en="Opinion & Perspectives"
+            data-hi="विचार एवं दृष्टिकोण">
+            Opinion & Perspectives
+        </h2>
+    </div>
+
+    <div class="grid-2-col-split">
+
+        <!-- OPINION -->
+        <div class="opinion-card">
+
+            <div>
+                <div class="category-tag">
+                    OPINION
+                </div>
+
+                <h3 class="article-title title-md">
+                    The Changing Face of Modern India
+                </h3>
+
+                <p class="article-excerpt">
+                    India is experiencing rapid changes in technology,
+                    society and everyday life. These changes are creating
+                    new opportunities while also bringing new challenges.
+                </p>
+            </div>
+
+            <div class="author-info">
+                <div class="author-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+
+                <div>
+                    <strong>Editorial Desk</strong>
+                    <div class="article-meta">
+                        The Newsroom
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- CARTOON -->
+        <div class="cartoon-card">
+
+            <div class="category-tag">
+                CARTOON
+            </div>
+
+            <img
+                src="images/cartoon.jpg"
+                alt="Editorial cartoon"
+                class="cartoon-img">
+
+            <p class="article-excerpt">
+                Today's editorial cartoon.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+          <h2 data-en="THE NEWSROOM" data-hi="द न्यूज़रूम">THE NEWSROOM</h2>
+          <p data-en="NEWS • VIEWS • PERSPECTIVES" data-hi="समाचार • विचार • दृष्टिकोण">NEWS • VIEWS • PERSPECTIVES</p>
+          <p data-en="The Newsroom is a premier independent digital newspaper delivering unbiased reporting, analytical essays, and real-time coverage across global developments."
+             data-hi="द न्यूज़रूम एक प्रमुख स्वतंत्र डिजिटल समाचार पत्र है जो वैश्विक घटनाक्रमों पर निष्पक्ष रिपोर्टिंग, विश्लेषणात्मक निबंध और वास्तविक समय कवरेज प्रदान करता है।">The Newsroom is a premier independent digital newspaper delivering unbiased reporting, analytical essays, and real-time coverage across global developments.</p>
+
+          <div class="social-icons">
+            <a href="#" class="social-icon x"  aria-label="X / Twitter"><i class="fab fa-x-twitter"></i></a>
+            <a href="#" class="social-icon fb" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon ig" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon yt" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="#" class="social-icon wa" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="footer-heading" data-en="Categories" data-hi="श्रेणियाँ">Categories</h3>
+          <ul class="footer-links">
+            <li><a href="#india"   data-en="India News"        data-hi="भारत समाचार">India News</a></li>
+            <li><a href="#world"   data-en="World News"        data-hi="विश्व समाचार">World News</a></li>
+            <li><a href="#politics" data-en="Politics"         data-hi="राजनीति">Politics</a></li>
+            <li><a href="#business" data-en="Business & Economy" data-hi="व्यापार एवं अर्थव्यवस्था">Business & Economy</a></li>
+            <li><a href="#technology" data-en="Tech & Science" data-hi="तकनीक एवं विज्ञान">Tech & Science</a></li>
+            <li><a href="#sports"  data-en="Sports Desk"       data-hi="खेल डेस्क">Sports Desk</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer-heading" data-en="Company" data-hi="कंपनी">Company</h3>
+          <ul class="footer-links">
+            <li><a href="#" onclick="event.preventDefault(); alert('About Us: THE NEWSROOM Editorial Board');" data-en="About Us" data-hi="हमारे बारे में">About Us</a></li>
+            <li><a href="#" onclick="event.preventDefault(); alert('Editorial Policy: Independent Journalism Standards');" data-en="Editorial Standards" data-hi="संपादकीय मानक">Editorial Standards</a></li>
+            <li><a href="#" onclick="event.preventDefault(); alert('Careers: Join our global newsroom desk');" data-en="Careers" data-hi="करियर">Careers</a></li>
+            <li><a href="#" onclick="event.preventDefault(); alert('Contact Us: editor@thenewsroom.org');" data-en="Contact Desk" data-hi="संपर्क डेस्क">Contact Desk</a></li>
+            <li><a href="#" onclick="event.preventDefault(); alert('Ethics Code & Corrections');" data-en="Corrections Policy" data-hi="सुधार नीति">Corrections Policy</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer-heading" data-en="Subscribe Today" data-hi="आज ही सदस्यता लें">Subscribe Today</h3>
+          <p style="font-size:0.85rem; color:#aaa; margin-bottom:0.8rem;"
+             data-en="Get the daily morning briefing delivered straight to your inbox."
+             data-hi="दैनिक सुबह की ब्रीफिंग सीधे अपने इनबॉक्स में पाएं।">Get the daily morning briefing delivered straight to your inbox.</p>
+          <div style="display:flex; gap:0.5rem;">
+            <input type="email" placeholder="Enter your email" style="padding:0.5rem; font-size:0.85rem; border:none; border-radius:2px; width:100%; color:#000;">
+            <button class="btn-accent" style="font-size:0.8rem;" onclick="alert('Thank you for subscribing to The Newsroom Daily!');"
+                    data-en="Join" data-hi="जुड़ें">Join</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div data-en="© 2026 THE NEWSROOM Media Group. All rights reserved."
+             data-hi="© 2026 द न्यूज़रूम मीडिया ग्रुप। सर्वाधिकार सुरक्षित।">© 2026 THE NEWSROOM Media Group. All rights reserved.</div>
+        <div style="display:flex; gap:1.5rem;">
+          <a href="#" data-en="Privacy Policy" data-hi="गोपनीयता नीति">Privacy Policy</a>
+          <a href="#" data-en="Terms of Service" data-hi="सेवा की शर्तें">Terms of Service</a>
+          <a href="#" data-en="Cookie Settings" data-hi="कुकी सेटिंग्स">Cookie Settings</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= ARTICLE MODAL ================= -->
+  <div class="modal-backdrop" id="article-reader-modal">
+    <div class="modal-container">
+      <button class="modal-close-btn" onclick="closeModal('article-reader-modal')"><i class="fas fa-times"></i></button>
+      <div class="article-modal-body">
+        <div class="article-modal-header">
+          <span class="category-tag" id="modal-category">Category</span>
+          <h1 class="article-modal-title" id="modal-title">Article Title</h1>
+          <div class="article-meta">
+            <span id="modal-author">By Author</span> • <span id="modal-date">Date</span>
+          </div>
+        </div>
+        <img src="" alt="Article Banner" id="modal-image" class="article-modal-img">
+        <div class="article-text-content" id="modal-text">
+          <p>Loading article content...</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= VIDEO MODAL ================= -->
+  <div class="modal-backdrop" id="video-modal">
+    <div class="modal-container video-modal-container">
+      <button class="modal-close-btn" onclick="closeVideoModal()"><i class="fas fa-times"></i></button>
+      <div class="video-iframe-wrap">
+        <iframe id="video-iframe" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= SEARCH OVERLAY ================= -->
+  <div class="search-overlay" id="search-overlay">
+    <div class="container">
+      <div class="search-input-wrap">
+        <i class="fas fa-search" style="font-size:1.5rem; color:var(--accent-red);"></i>
+        <input type="text" id="search-input" class="search-input" placeholder="Search news, topics, authors or keywords..." autocomplete="off">
+        <button class="icon-btn" onclick="closeSearch()"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="search-results-container" id="search-results-list"></div>
+    </div>
+  </div>
+
+  <script src="js/articles.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

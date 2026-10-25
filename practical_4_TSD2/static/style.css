@@ -1,0 +1,919 @@
+/* ============================================
+   AeroBook — Main Stylesheet
+   Theme: Aviation / Sky / Travel
+   ============================================ */
+
+/* ----- CSS Variables ----- */
+:root {
+    --sky-blue: #38BDF8;
+    --deep-navy: #0F172A;
+    --white: #FFFFFF;
+    --soft-blue: #E0F2FE;
+    --light-blue: #BAE6FD;
+    --accent: #F59E0B;
+    --accent-light: #FBBF24;
+    --dark-blue: #1E293B;
+    --gray-light: #F1F5F9;
+    --gray-mid: #94A3B8;
+    --shadow: 0 25px 60px rgba(15, 23, 42, 0.25);
+    --glass-bg: rgba(255, 255, 255, 0.85);
+    --glass-border: rgba(255, 255, 255, 0.35);
+    --radius: 24px;
+    --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    --font: 'Poppins', sans-serif;
+}
+
+/* ----- Reset & Base ----- */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--deep-navy);
+    overflow-x: hidden;
+    position: relative;
+    padding: 20px;
+}
+
+/* ----- Background Gradient ----- */
+.bg-gradient {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    background: linear-gradient(145deg, #0B1A33 0%, #1A3A5C 30%, #2B6A8A 60%, #6BAED9 85%, #B8E2F8 100%);
+    animation: skyGradient 20s ease-in-out infinite alternate;
+}
+
+@keyframes skyGradient {
+    0% {
+        background: linear-gradient(145deg, #0B1A33 0%, #1A3A5C 30%, #2B6A8A 60%, #6BAED9 85%, #B8E2F8 100%);
+    }
+    50% {
+        background: linear-gradient(145deg, #0A1628 0%, #1B3D5E 25%, #3A7CA5 55%, #7EC8E3 80%, #D4EEF7 100%);
+    }
+    100% {
+        background: linear-gradient(145deg, #0B1A33 0%, #1A3A5C 30%, #2B6A8A 60%, #6BAED9 85%, #B8E2F8 100%);
+    }
+}
+
+/* ----- Sun Glow ----- */
+.sun-glow {
+    position: fixed;
+    top: -150px;
+    right: -150px;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(245, 158, 11, 0.25) 0%, rgba(245, 158, 11, 0.08) 40%, transparent 70%);
+    z-index: 1;
+    animation: sunPulse 8s ease-in-out infinite alternate;
+    pointer-events: none;
+}
+
+@keyframes sunPulse {
+    0% {
+        transform: scale(0.9);
+        opacity: 0.7;
+    }
+    100% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+}
+
+/* ----- Clouds ----- */
+.cloud {
+    position: fixed;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 9999px;
+    z-index: 1;
+    pointer-events: none;
+    filter: blur(1px);
+    box-shadow: 0 8px 32px rgba(255, 255, 255, 0.1);
+}
+
+.cloud::before,
+.cloud::after {
+    content: '';
+    position: absolute;
+    background: inherit;
+    border-radius: 9999px;
+}
+
+.cloud-1 {
+    width: 220px;
+    height: 60px;
+    top: 8%;
+    left: -100px;
+    animation: cloudMove 35s linear infinite;
+    opacity: 0.5;
+}
+.cloud-1::before {
+    width: 120px;
+    height: 80px;
+    top: -40px;
+    left: 30px;
+}
+.cloud-1::after {
+    width: 80px;
+    height: 60px;
+    top: -30px;
+    left: 100px;
+}
+
+.cloud-2 {
+    width: 300px;
+    height: 70px;
+    top: 18%;
+    left: -150px;
+    animation: cloudMove 45s linear infinite 5s;
+    opacity: 0.4;
+}
+.cloud-2::before {
+    width: 160px;
+    height: 90px;
+    top: -50px;
+    left: 40px;
+}
+.cloud-2::after {
+    width: 100px;
+    height: 70px;
+    top: -40px;
+    left: 140px;
+}
+
+.cloud-3 {
+    width: 180px;
+    height: 50px;
+    top: 55%;
+    left: -80px;
+    animation: cloudMove 30s linear infinite 10s;
+    opacity: 0.35;
+}
+.cloud-3::before {
+    width: 100px;
+    height: 70px;
+    top: -35px;
+    left: 25px;
+}
+.cloud-3::after {
+    width: 70px;
+    height: 50px;
+    top: -25px;
+    left: 80px;
+}
+
+.cloud-4 {
+    width: 260px;
+    height: 65px;
+    bottom: 15%;
+    right: -120px;
+    animation: cloudMove 40s linear infinite 15s;
+    opacity: 0.3;
+}
+.cloud-4::before {
+    width: 140px;
+    height: 85px;
+    top: -45px;
+    left: 35px;
+}
+.cloud-4::after {
+    width: 90px;
+    height: 65px;
+    top: -35px;
+    left: 120px;
+}
+
+.cloud-5 {
+    width: 160px;
+    height: 45px;
+    top: 40%;
+    right: -100px;
+    animation: cloudMove 28s linear infinite 8s;
+    opacity: 0.25;
+}
+.cloud-5::before {
+    width: 90px;
+    height: 60px;
+    top: -30px;
+    left: 20px;
+}
+.cloud-5::after {
+    width: 60px;
+    height: 45px;
+    top: -20px;
+    left: 70px;
+}
+
+@keyframes cloudMove {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(100vw + 200px));
+    }
+}
+
+/* ----- Auth Wrapper ----- */
+.auth-wrapper {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+    animation: cardEntrance 1s ease-out 0.6s both;
+}
+
+@keyframes cardEntrance {
+    0% {
+        opacity: 0;
+        transform: translateY(60px) scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* ----- Auth Card (Glassmorphism) ----- */
+.auth-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius);
+    padding: 38px 36px 32px;
+    box-shadow: var(--shadow);
+    transition: box-shadow var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.auth-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 30% 20%, rgba(56, 189, 248, 0.06) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+/* ----- Branding ----- */
+.brand {
+    text-align: center;
+    margin-bottom: 28px;
+    animation: fadeUp 0.8s ease-out 1s both;
+}
+
+.brand-name {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--deep-navy);
+    letter-spacing: -0.5px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.brand-icon {
+    font-size: 1.8rem;
+    display: inline-block;
+    animation: floatIcon 3s ease-in-out infinite;
+}
+
+@keyframes floatIcon {
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-6px) rotate(6deg);
+    }
+}
+
+.brand-tagline {
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: var(--gray-mid);
+    letter-spacing: 2px;
+    margin-top: 2px;
+}
+
+/* ----- Form Container ----- */
+.form-container {
+    display: none;
+    animation: fadeUp 0.6s ease-out both;
+}
+
+.form-container.active {
+    display: block;
+}
+
+/* Login form specific entrance */
+.form-login.active {
+    animation-name: fadeUp;
+    animation-duration: 0.6s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: both;
+    animation-delay: 0.1s;
+}
+
+/* Register form specific entrance */
+.form-register.active {
+    animation-name: fadeUp;
+    animation-duration: 0.6s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: both;
+    animation-delay: 0.1s;
+}
+
+@keyframes fadeUp {
+    0% {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ----- Form Titles ----- */
+.form-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--deep-navy);
+    margin-bottom: 2px;
+}
+
+.form-subtitle {
+    font-size: 0.85rem;
+    color: var(--gray-mid);
+    margin-bottom: 22px;
+    font-weight: 400;
+}
+
+/* ----- Form Groups ----- */
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--dark-blue);
+    margin-bottom: 5px;
+    letter-spacing: 0.3px;
+    transition: color var(--transition);
+}
+
+/* ----- Input Wrapper ----- */
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: var(--white);
+    border: 2px solid #E2E8F0;
+    border-radius: 12px;
+    transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.input-wrapper:focus-within {
+    border-color: var(--sky-blue);
+    box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.15);
+}
+
+.input-wrapper input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 14px 16px 14px 44px;
+    font-size: 0.95rem;
+    font-family: var(--font);
+    background: transparent;
+    color: var(--deep-navy);
+    border-radius: 12px;
+    min-width: 0;
+}
+
+.input-wrapper input::placeholder {
+    color: var(--gray-mid);
+    font-weight: 300;
+    font-size: 0.9rem;
+}
+
+.input-wrapper .input-icon {
+    position: absolute;
+    left: 14px;
+    font-size: 1.1rem;
+    opacity: 0.5;
+    pointer-events: none;
+    transition: opacity var(--transition), transform var(--transition);
+}
+
+.input-wrapper:focus-within .input-icon {
+    opacity: 0.9;
+}
+
+/* ----- Password Toggle ----- */
+.password-toggle {
+    position: absolute;
+    right: 14px;
+    left: auto !important;
+    cursor: pointer;
+    font-size: 1.1rem;
+    opacity: 0.5;
+    pointer-events: all;
+    transition: opacity var(--transition), transform var(--transition);
+    background: none;
+    border: none;
+    padding: 4px;
+    line-height: 1;
+}
+
+.password-toggle:hover {
+    opacity: 0.9;
+    transform: scale(1.1);
+}
+
+.password-toggle:focus-visible {
+    outline: 2px solid var(--sky-blue);
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+/* ----- Form Options ----- */
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 6px 0 22px;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.82rem;
+    color: var(--dark-blue);
+    cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: var(--sky-blue);
+    cursor: pointer;
+}
+
+.forgot-link,
+.terms-link {
+    font-size: 0.82rem;
+    color: var(--sky-blue);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color var(--transition);
+}
+
+.forgot-link:hover,
+.terms-link:hover {
+    color: var(--accent);
+    text-decoration: underline;
+}
+
+/* ----- Error Messages ----- */
+.error-message {
+    font-size: 0.75rem;
+    color: #EF4444;
+    margin-top: 4px;
+    min-height: 20px;
+    font-weight: 400;
+    transition: opacity var(--transition);
+}
+
+.error-message:empty {
+    opacity: 0;
+    min-height: 0;
+    margin-top: 0;
+}
+
+/* Input error state */
+.input-wrapper.error {
+    border-color: #EF4444;
+    box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.12);
+}
+
+.input-wrapper.error:focus-within {
+    border-color: #EF4444;
+    box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.18);
+}
+
+/* Shake animation for errors */
+@keyframes shake {
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+    20% {
+        transform: translateX(-6px);
+    }
+    40% {
+        transform: translateX(6px);
+    }
+    60% {
+        transform: translateX(-4px);
+    }
+    80% {
+        transform: translateX(4px);
+    }
+}
+
+.shake {
+    animation: shake 0.4s ease;
+}
+
+/* ----- Buttons ----- */
+.btn {
+    display: block;
+    width: 100%;
+    padding: 16px 24px;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: var(--font);
+    letter-spacing: 1.5px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--deep-navy) 0%, #1A3A5C 100%);
+    color: var(--white);
+    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.25);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(15, 23, 42, 0.35);
+    background: linear-gradient(135deg, #1A2A4A 0%, #2A4A6A 100%);
+}
+
+.btn-primary:active {
+    transform: translateY(0px);
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.2);
+}
+
+.btn-primary:focus-visible {
+    outline: 3px solid var(--sky-blue);
+    outline-offset: 3px;
+}
+
+/* ----- Form Footer ----- */
+.form-footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: var(--gray-mid);
+}
+
+.switch-link {
+    color: var(--sky-blue);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color var(--transition);
+    cursor: pointer;
+}
+
+.switch-link:hover {
+    color: var(--accent);
+    text-decoration: underline;
+}
+
+/* ----- Toast Notification ----- */
+.toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(120px);
+    z-index: 1000;
+    background: var(--deep-navy);
+    color: var(--white);
+    padding: 14px 24px;
+    border-radius: 14px;
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    opacity: 0;
+    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.4s ease;
+    pointer-events: none;
+    max-width: 90%;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.toast.show {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+    pointer-events: all;
+}
+
+.toast.success {
+    border-left: 4px solid #34D399;
+}
+
+.toast.error {
+    border-left: 4px solid #EF4444;
+}
+
+.toast-icon {
+    font-size: 1.4rem;
+    flex-shrink: 0;
+}
+
+.toast-message {
+    font-size: 0.9rem;
+    font-weight: 400;
+    flex: 1;
+}
+
+.toast-close {
+    background: none;
+    border: none;
+    color: var(--gray-mid);
+    font-size: 1.4rem;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 6px;
+    transition: background var(--transition), color var(--transition);
+    line-height: 1;
+}
+
+.toast-close:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--white);
+}
+
+.toast-close:focus-visible {
+    outline: 2px solid var(--sky-blue);
+    outline-offset: 2px;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+/* ----- Tablets & Small Laptops ----- */
+@media (max-width: 1024px) {
+    .cloud-4,
+    .cloud-5 {
+        display: none;
+    }
+}
+
+/* ----- Mobile & Small Tablets ----- */
+@media (max-width: 768px) {
+    body {
+        padding: 12px;
+        align-items: flex-start;
+        padding-top: 30px;
+    }
+
+    .auth-card {
+        padding: 28px 20px 24px;
+        border-radius: 20px;
+    }
+
+    .brand-name {
+        font-size: 1.6rem;
+    }
+
+    .brand-icon {
+        font-size: 1.4rem;
+    }
+
+    .brand-tagline {
+        font-size: 0.75rem;
+    }
+
+    .form-title {
+        font-size: 1.25rem;
+    }
+
+    .form-subtitle {
+        font-size: 0.8rem;
+        margin-bottom: 18px;
+    }
+
+    .input-wrapper input {
+        padding: 12px 14px 12px 40px;
+        font-size: 0.9rem;
+    }
+
+    .input-wrapper .input-icon {
+        font-size: 1rem;
+        left: 12px;
+    }
+
+    .password-toggle {
+        font-size: 1rem;
+        right: 12px;
+    }
+
+    .btn {
+        padding: 14px 20px;
+        font-size: 0.9rem;
+    }
+
+    .form-options {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+        margin-bottom: 18px;
+    }
+
+    .form-footer {
+        font-size: 0.82rem;
+        margin-top: 16px;
+    }
+
+    .cloud-1,
+    .cloud-2,
+    .cloud-3 {
+        display: none;
+    }
+
+    .cloud-4,
+    .cloud-5 {
+        opacity: 0.15;
+    }
+
+    .sun-glow {
+        width: 300px;
+        height: 300px;
+        top: -100px;
+        right: -100px;
+    }
+
+    .toast {
+        bottom: 20px;
+        padding: 12px 18px;
+        font-size: 0.85rem;
+        border-radius: 12px;
+    }
+}
+
+/* ----- Very Small Phones ----- */
+@media (max-width: 420px) {
+    .auth-card {
+        padding: 22px 16px 20px;
+    }
+
+    .brand-name {
+        font-size: 1.4rem;
+    }
+
+    .form-title {
+        font-size: 1.1rem;
+    }
+
+    .input-wrapper input {
+        padding: 10px 12px 10px 36px;
+        font-size: 0.85rem;
+    }
+
+    .input-wrapper .input-icon {
+        font-size: 0.9rem;
+        left: 10px;
+    }
+
+    .password-toggle {
+        font-size: 0.9rem;
+        right: 10px;
+    }
+
+    .btn {
+        padding: 12px 16px;
+        font-size: 0.82rem;
+    }
+}
+
+/* ============================================
+   REDUCED MOTION PREFERENCE
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        animation-delay: 0.01ms !important;
+    }
+
+    .bg-gradient {
+        animation: none;
+        background: linear-gradient(145deg, #0B1A33 0%, #1A3A5C 30%, #2B6A8A 60%, #6BAED9 85%, #B8E2F8 100%);
+    }
+
+    .cloud {
+        animation: none;
+        opacity: 0.15;
+    }
+
+    .sun-glow {
+        animation: none;
+    }
+
+    .auth-wrapper {
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
+
+    .form-login.active,
+    .form-register.active {
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
+
+    .brand {
+        animation: none;
+        opacity: 1;
+    }
+
+    .btn:hover {
+        transform: none !important;
+    }
+
+    .password-toggle:hover {
+        transform: none !important;
+    }
+
+    .toast {
+        transition: none;
+    }
+}
+
+/* Google Login Button */
+
+.google-divider {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 18px 0;
+    color: #999;
+    font-size: 12px;
+}
+
+.google-divider::before,
+.google-divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #ddd;
+}
+
+.google-login-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: white;
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    box-sizing: border-box;
+    transition: 0.2s;
+}
+
+.google-login-btn:hover {
+    background: #f5f5f5;
+    transform: translateY(-1px);
+}

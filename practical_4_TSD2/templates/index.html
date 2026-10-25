@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AeroBook ✈️ - Your Journey Begins Here</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+    <!-- ===== Background Decorations ===== -->
+    <div class="bg-gradient"></div>
+
+    <!-- Clouds -->
+    <div class="cloud cloud-1"></div>
+    <div class="cloud cloud-2"></div>
+    <div class="cloud cloud-3"></div>
+    <div class="cloud cloud-4"></div>
+    <div class="cloud cloud-5"></div>
+
+    <!-- Sun / Glow -->
+    <div class="sun-glow"></div>
+
+    <!-- ===== Main Authentication Card ===== -->
+    <main class="auth-wrapper" role="main">
+        <div class="auth-card" id="authCard">
+
+            <!-- Branding -->
+            <div class="brand">
+                <h1 class="brand-name">AeroBook <span class="brand-icon">✈️</span></h1>
+                <p class="brand-tagline">Your journey begins here.</p>
+            </div>
+
+            <!-- ===== LOGIN FORM ===== -->
+            <div class="form-container form-login active" id="loginForm">
+                <h2 class="form-title">Welcome Back, Traveler!</h2>
+                <p class="form-subtitle">Your next journey starts here.</p>
+
+                <form id="loginFormElement" novalidate>
+                    <div class="form-group">
+                        <label for="loginEmail">Email Address</label>
+                        <div class="input-wrapper">
+                            <input
+                            type="email"
+                            id="loginEmail"
+                            placeholder="you@example.com"
+                            autocomplete="email"
+                            required
+                            />
+                            <span class="input-icon">✉</span>
+                        </div>
+                        <div class="error-message" id="loginEmailError"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <div class="input-wrapper">
+                            <input
+                            type="password"
+                            id="loginPassword"
+                            placeholder="••••••••"
+                            autocomplete="current-password"
+                            required
+                            />
+                            <span class="input-icon password-toggle" id="loginToggle" role="button" tabindex="0" aria-label="Toggle password visibility"></span>
+                        </div>
+                        <div class="error-message" id="loginPasswordError"></div>
+                    </div>
+
+                    <div class="form-options">
+                        <label class="checkbox-label">
+                            <input type="checkbox" checked />
+                            <span>Remember me</span>
+                        </label>
+                        <a href="#" class="forgot-link" id="forgotPassword">Forgot password?</a>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">SIGN IN</button>
+
+                    <div class="google-divider">
+    <span>OR</span>
+                    </div>
+
+                    <a href="{{ url_for('google_login') }}" class="google-login-btn">
+                    <span>🌐</span>
+                    Continue with Google
+                    </a>
+
+                </form>
+
+                <div class="form-footer">
+                    <p>New traveler? <a href="#" class="switch-link" id="switchToRegister">Create Account →</a></p>
+                </div>
+            </div>
+
+            <!-- ===== REGISTRATION FORM ===== -->
+            <div class="form-container form-register" id="registerForm">
+                <h2 class="form-title">Start Your Journey</h2>
+                <p class="form-subtitle">Create your AeroBook account and explore the world.</p>
+
+                <form id="registerFormElement" novalidate>
+                    <div class="form-group">
+                        <label for="registerName">Full Name</label>
+                        <div class="input-wrapper">
+                            <input
+                            type="text"
+                            id="registerName"
+                            placeholder="John Doe"
+                            autocomplete="name"
+                            required
+                            />
+                        </div>
+                        <div class="error-message" id="registerNameError"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="registerEmail">Email Address</label>
+                        <div class="input-wrapper">
+                            <input
+                            type="email"
+                            id="registerEmail"
+                            placeholder="you@example.com"
+                            autocomplete="email"
+                            required
+                            />
+                            <span class="input-icon">✉</span>
+                        </div>
+                        <div class="error-message" id="registerEmailError"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="registerPassword">Password</label>
+                        <div class="input-wrapper">
+                            <input
+                            type="password"
+                            id="registerPassword"
+                            placeholder="••••••••"
+                            autocomplete="new-password"
+                            required
+                            minlength="8"
+                            />
+                            <span class="input-icon password-toggle" id="registerToggle" role="button" tabindex="0" aria-label="Toggle password visibility"></span>
+                        </div>
+                        <div class="error-message" id="registerPasswordError"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="registerConfirm">Confirm Password</label>
+                        <div class="input-wrapper">
+                            <input
+                            type="password"
+                            id="registerConfirm"
+                            placeholder="••••••••"
+                            autocomplete="new-password"
+                            required
+                            />
+                            <span class="input-icon password-toggle" id="confirmToggle" role="button" tabindex="0" aria-label="Toggle password visibility"></span>
+                        </div>
+                        <div class="error-message" id="registerConfirmError"></div>
+                    </div>
+
+                    <div class="form-options">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="termsCheck" required />
+                            <span>I agree to the <a href="#" class="terms-link">Terms &amp; Conditions</a></span>
+                        </label>
+                        <div class="error-message" id="termsError"></div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">CREATE ACCOUNT</button>
+                </form>
+
+                <div class="form-footer">
+                    <p>Already have an account? <a href="#" class="switch-link" id="switchToLogin">← Sign In</a></p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- ===== Notification Toast ===== -->
+    <div class="toast" id="toast" role="alert" aria-live="polite">
+        <span class="toast-icon" id="toastIcon">✈️</span>
+        <span class="toast-message" id="toastMessage"></span>
+        <button class="toast-close" id="toastClose" aria-label="Dismiss notification">&times;</button>
+    </div>
+
+    <!-- ===== JavaScript ===== -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

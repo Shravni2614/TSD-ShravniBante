@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shravni Bante | Portfolio</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#home" class="logo" aria-label="Shravni Bante portfolio logo">
+        <span>SB</span>
+      </a>
+      <nav class="main-nav" aria-label="Primary navigation">
+        <ul class="nav-list">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#leadership">Leadership</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#achievements">Achievements</a></li>
+          <li><a href="#certifications">Certifications</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="Open navigation menu" aria-expanded="false">
+        <span class="hamburger"></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="hero section hero-section">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal-up">
+          <span class="eyebrow">Hello, I’m</span>
+          <h1>Shravni Bante</h1>
+          <p class="hero-subtitle">Information Technology Student | AI &amp; Machine Learning Enthusiast | Web Developer | Student Leader</p>
+          <p class="hero-description">
+            I am a second-year Information Technology student at SVPCET Nagpur who enjoys turning ideas into working products, from machine learning models to responsive web experiences.
+            I also enjoy leadership, organizing technical events, teamwork, and solving real-world problems using technology.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="resume.pdf" download>Download Resume</a>
+            <a class="btn btn-secondary" href="#projects">View Projects</a>
+          </div>
+
+          <div class="hero-socials" aria-label="Social media links">
+            <a class="social-link" href="#" aria-label="GitHub profile" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.49.5.09.66-.22.66-.48 0-.24-.01-.87-.01-1.71-2.78.6-3.37-1.34-3.37-1.34-.45-1.15-1.11-1.46-1.11-1.46-.91-.62.07-.61.07-.61 1 .07 1.52 1.03 1.52 1.03.9 1.53 2.36 1.09 2.94.83.09-.65.35-1.09.64-1.34-2.22-.25-4.55-1.11-4.55-4.95 0-1.09.39-1.99 1.03-2.69-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02A9.58 9.58 0 0112 6.8c.85.004 1.7.11 2.5.32 1.9-1.3 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.6 1.03 2.69 0 3.85-2.34 4.7-4.57 4.95.36.31.68.92.68 1.86 0 1.34-.01 2.42-.01 2.75 0 .27.16.58.67.48A10.001 10.001 0 0022 12c0-5.52-4.48-10-10-10z"/></svg>
+              GitHub
+            </a>
+            <a class="social-link" href="#" aria-label="LinkedIn profile" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.25 8h4.5v14H.25V8zm7.18 0h4.32v2h.06c.6-1.13 2.06-2.32 4.24-2.32 4.54 0 5.38 2.99 5.38 6.88V22H17.4v-6.95c0-1.66-.03-3.8-2.32-3.8-2.33 0-2.69 1.82-2.69 3.7V22H7.43V8z"/></svg>
+              LinkedIn
+            </a>
+            <a class="social-link" href="#" aria-label="YouTube channel" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.8 8.001c-.22-1.63-.88-2.89-1.86-3.54C18.4 3 12 3 12 3s-6.4 0-7.94.46c-1 .65-1.64 1.91-1.86 3.54C2 9.56 2 12 2 12s0 2.44.2 3.999c.22 1.63.88 2.89 1.86 3.54C5.6 21 12 21 12 21s6.4 0 7.94-.46c1-.65 1.64-1.91 1.86-3.54.2-1.56.2-3.999.2-3.999s0-2.44-.2-3.999zM9.75 15.02V8.98l5.5 3.02-5.5 3.02z"/></svg>
+              YouTube
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal-right" aria-label="Profile presentation">
+          <div class="profile-card">
+            <div class="profile-ring">
+              <div class="profile-photo">
+                <img src="{{ url_for('static', filename='images/shravni_coat.png') }}" alt="Shravni Bante profile photo" class="profile-image" />
+              </div>
+            </div>
+            <div class="profile-badge badge-1">Web Dev</div>
+            <div class="profile-badge badge-2">AI/ML</div>
+            <div class="profile-badge badge-3">Leader</div>
+            <div class="profile-details">
+              <p><strong>2nd Year IT Student</strong></p>
+              <p>SVPCET Nagpur</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section section-card reveal-up">
+      <div class="container section-grid">
+        <div>
+          <h2>About Me</h2>
+          <p>
+            I am a second-year Information Technology student at SVPCET Nagpur who enjoys turning ideas into working products, from machine learning models to responsive web experiences.
+            I also enjoy leadership, organizing technical events, teamwork, and solving real-world problems using technology.
+          </p>
+        </div>
+        <div class="info-grid">
+          <div class="info-card">
+            <h3>College</h3>
+            <p>St. Vincent Pallotti College of Engineering and Technology</p>
+          </div>
+          <div class="info-card">
+            <h3>Interests</h3>
+            <p>Artificial Intelligence, Machine Learning, Web Development</p>
+          </div>
+          <div class="info-card">
+            <h3>Roles</h3>
+            <p>Student Leader, Vice Chair IEEE, Magazine Coordinator, Technical Events</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="section section-split">
+      <div class="container section-grid reveal-up">
+        <div>
+          <h2>Skills</h2>
+          <p>Technical and soft skills that reflect my academic growth and practical experience.</p>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-card"><h3>Programming</h3><p>C, C++, Python, Java</p></div>
+          <div class="skill-card"><h3>Web Development</h3><p>HTML5, CSS3, JavaScript, Responsive Web Design</p></div>
+          <div class="skill-card"><h3>AI / Machine Learning</h3><p>Machine Learning, Scikit-learn, Pandas, NumPy</p></div>
+          <div class="skill-card"><h3>Database</h3><p>SQL, PostgreSQL</p></div>
+          <div class="skill-card"><h3>Tools</h3><p>Git, GitHub, VS Code, Google Colab, Canva, Figma</p></div>
+          <div class="skill-card"><h3>Soft Skills</h3><p>Leadership, Communication, Public Speaking, Teamwork, Problem Solving, Event Management</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section section-card reveal-up">
+      <div class="container">
+        <h2>Projects</h2>
+        <p class="section-intro">A selection of projects demonstrating my work in web development, AI, and practical problem solving.</p>
+        <div class="projects-grid">
+          <article class="project-card">
+            <h3>FarmConnect</h3>
+            <p>A responsive platform designed to connect farmers with students possessing modern technical knowledge and provide useful agricultural support.</p>
+            <p class="project-tech">Technologies: HTML, CSS, JavaScript, Responsive Design</p>
+            <div class="project-actions">
+              <a href="#" class="btn btn-tertiary">GitHub (placeholder)</a>
+              <a href="#" class="btn btn-tertiary">Live Demo (placeholder)</a>
+            </div>
+          </article>
+          <article class="project-card">
+            <h3>AgriChain</h3>
+            <p>An AI-driven Farm-to-Market Intelligence Platform designed to help farmers with market and crop-related information.</p>
+            <p class="project-tech">Technologies: Python, Machine Learning, Web APIs</p>
+            <div class="project-actions">
+              <a href="#" class="btn btn-tertiary">GitHub (placeholder)</a>
+              <a href="#" class="btn btn-tertiary">Live Demo (placeholder)</a>
+            </div>
+          </article>
+          <article class="project-card">
+            <h3>EcoLearn</h3>
+            <p>An interactive learning platform focused on sustainability and environmental awareness.</p>
+            <p class="project-tech">Technologies: HTML, CSS, JavaScript, UX Design</p>
+            <div class="project-actions">
+              <a href="#" class="btn btn-tertiary">GitHub (placeholder)</a>
+              <a href="#" class="btn btn-tertiary">Live Demo (placeholder)</a>
+            </div>
+          </article>
+          <article class="project-card">
+            <h3>News Delivery Agent</h3>
+            <p>An automated system that curates and summarizes news based on topics and delivers relevant updates.</p>
+            <p class="project-tech">Technologies: Python, APIs, Automation</p>
+            <div class="project-actions">
+              <a href="#" class="btn btn-tertiary">GitHub (placeholder)</a>
+              <a href="#" class="btn btn-tertiary">Live Demo (placeholder)</a>
+            </div>
+          </article>
+          <article class="project-card">
+            <h3>House Price Prediction</h3>
+            <p>A machine learning project that predicts house prices using relevant features and regression techniques.</p>
+            <p class="project-tech">Technologies: Python, Scikit-learn, Data Analysis</p>
+            <div class="project-actions">
+              <a href="#" class="btn btn-tertiary">GitHub (placeholder)</a>
+              <a href="#" class="btn btn-tertiary">Live Demo (placeholder)</a>
+            </div>
+          </article>
+          <article class="project-card">
+            <h3>Price Comparison Website</h3>
+            <p>A web application designed to compare product prices and help users find better deals.</p>
+            <p class="project-tech">Technologies: HTML, CSS, JavaScript, UX</p>
+            <div class="project-actions">
+              <a href="#" class="btn btn-tertiary">GitHub (placeholder)</a>
+              <a href="#" class="btn btn-tertiary">Live Demo (placeholder)</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="leadership" class="section section-card reveal-up">
+      <div class="container section-grid">
+        <div>
+          <h2>Leadership</h2>
+          <p>Active leadership in academic clubs, student governance, and community programs.</p>
+        </div>
+        <div class="timeline-grid">
+          <div class="timeline-card">
+            <h3>Vice Chair</h3>
+            <p>IEEE SVPCET Student Branch</p>
+          </div>
+          <div class="timeline-card">
+            <h3>Magazine Coordinator</h3>
+            <p>Unnat Bharat Abhiyan</p>
+          </div>
+          <div class="timeline-card">
+            <h3>Student Leadership</h3>
+            <p>Student Council / Technical event organization</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="section section-split reveal-up">
+      <div class="container section-grid">
+        <div>
+          <h2>Experience</h2>
+          <p>Professional development through internships, training programs, and practical exposure.</p>
+        </div>
+        <div class="experience-list">
+          <div class="experience-card">
+            <h3>Prodigy InfoTech</h3>
+            <p>Virtual Internship</p>
+          </div>
+          <div class="experience-card">
+            <h3>SmartEd</h3>
+            <p>Training and Internship Program</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="education" class="section section-card reveal-up">
+      <div class="container section-grid">
+        <div>
+          <h2>Education</h2>
+          <p>B.Tech Information Technology</p>
+          <p>St. Vincent Pallotti College of Engineering and Technology, Nagpur</p>
+          <p>2024 – Present</p>
+        </div>
+        <div class="education-card">
+          <h3>SVPCET Nagpur</h3>
+          <p>Information Technology | 2nd Year</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="achievements" class="section section-card reveal-up">
+      <div class="container">
+        <h2>Achievements</h2>
+        <div class="achievements-grid">
+          <div class="achievement-card"><p>Leadership roles in IEEE and student council activities.</p></div>
+          <div class="achievement-card"><p>Coordinator for Unnat Bharat Abhiyan magazine projects.</p></div>
+          <div class="achievement-card"><p>Practical experience with AI and web development projects.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="certifications" class="section section-card reveal-up">
+      <div class="container">
+        <h2>Certifications</h2>
+        <div class="certifications-grid">
+          <div class="cert-card"><h3>AI / ML Training</h3><p>Completed relevant coursework and hands-on learning.</p></div>
+          <div class="cert-card"><h3>Web Development</h3><p>Practical training in responsive front-end design.</p></div>
+          <div class="cert-card"><h3>Database Fundamentals</h3><p>Foundational SQL and PostgreSQL skills.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section section-card reveal-up">
+      <div class="container section-grid">
+        <div>
+          <h2>Contact</h2>
+          <p>Connect with me for collaborations, projects, or professional opportunities.</p>
+          <div class="contact-details">
+            <div><strong>Email</strong><span>shravni@example.com</span></div>
+            <div><strong>LinkedIn</strong><span><a href="#" target="_blank" rel="noopener noreferrer">Your LinkedIn URL</a></span></div>
+            <div><strong>GitHub</strong><span><a href="#" target="_blank" rel="noopener noreferrer">Your GitHub URL</a></span></div>
+          </div>
+        </div>
+        <form class="contact-form" id="contactForm">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your name" required />
+
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="Your email" required />
+
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" placeholder="Your message" required></textarea>
+
+          <button type="submit" class="btn btn-primary">Send Message</button>
+          <p class="form-note" id="formMessage">This form is front-end ready. Connect your email service or backend here later.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <button class="back-to-top" aria-label="Scroll back to top">↑</button>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
