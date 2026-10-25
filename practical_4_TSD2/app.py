@@ -24,9 +24,12 @@ app.secret_key = os.environ.get("FLASK_SECRET_KEY", "dev-only-change-me")
 def get_db_connection():
     return mysql.connector.connect(
         host=os.environ.get("DB_HOST", "localhost"),
+        port=int(os.environ.get("DB_PORT", 3306)),
         user=os.environ.get("DB_USER", "root"),
         password=os.environ.get("DB_PASSWORD", ""),
-        database=os.environ.get("DB_NAME", "aerobook")
+        database=os.environ.get("DB_NAME", "aerobook"),
+        ssl_ca=os.environ.get("DB_SSL_CA"),
+        ssl_verify_cert=True
     )
 
 
