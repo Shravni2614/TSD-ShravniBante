@@ -37,7 +37,10 @@ def get_db_connection():
 # GOOGLE OAUTH SETTINGS
 # ==================================================
 
-CLIENT_SECRETS_FILE = "credentials.json"
+CLIENT_SECRETS_FILE = os.environ.get(
+    "GOOGLE_CLIENT_SECRETS_FILE",
+    "credentials.json"
+)
 
 GOOGLE_SCOPES = [
     "openid",
