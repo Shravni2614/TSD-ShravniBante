@@ -8,6 +8,7 @@ const projects = [
         filters: ["css", "responsive"],
         symbol: "✳",
         accent: "#ffab86",
+        image: "./images/1.png",
         path: "./practical_1_TSD2/Practical_1.html"
     },
     {
@@ -19,6 +20,7 @@ const projects = [
         filters: ["css", "responsive"],
         symbol: "◇",
         accent: "#75c8ff",
+        image: "./images/2.png",
         path: "./practical_2_TSD2/index.html"
     },
     {
@@ -30,6 +32,7 @@ const projects = [
         filters: ["css", "javascript"],
         symbol: "</>",
         accent: "#c3a0ff",
+        image: "./images/3.png",
         path: "./practical_3_TSD2/index.html"
     },
     {
@@ -41,6 +44,7 @@ const projects = [
         filters: ["css"],
         symbol: "⌘",
         accent: "#ff8fb5",
+        image: "./images/4.png",
         path: "https://aerobook-tsd.onrender.com/"
     },
     {
@@ -52,6 +56,7 @@ const projects = [
         filters: ["css", "responsive", "javascript"],
         symbol: "▤",
         accent: "#80e2c2",
+        image: "./images/5.png",
         path: "./practical_5_TSD2/index.html"
     },
     {
@@ -63,6 +68,7 @@ const projects = [
         filters: ["react", "javascript"],
         symbol: "⚛",
         accent: "#76d9ff",
+        image: "./images/6.png",
         path: "https://tsd-student-portal.vercel.app/"
     }
 ];
@@ -79,6 +85,12 @@ function createProjectCard(project) {
 
     const preview = document.createElement("div");
     preview.className = "project-preview";
+
+    const image = document.createElement("img");
+    image.className = "project-image";
+    image.src = project.image;
+    image.alt = `${project.title} preview`;
+    image.loading = "lazy";
 
     const previewGrid = document.createElement("div");
     previewGrid.className = "preview-grid";
@@ -97,7 +109,7 @@ function createProjectCard(project) {
     art.textContent = project.symbol;
     art.setAttribute("aria-hidden", "true");
 
-    preview.append(previewGrid, number, type, art);
+    preview.append(image, previewGrid, number, type);
 
     const body = document.createElement("div");
     body.className = "project-body";
